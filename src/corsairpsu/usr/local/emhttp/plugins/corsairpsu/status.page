@@ -1,0 +1,37 @@
+Menu="Dashboard:1"
+Title="Corsair PSU"
+Cond="file_exists('/usr/local/bin/corsairmi')"
+---
+<script>
+const corsairpsu_status = () => {
+ $.getJSON("/plugins/corsairpsu/status.php", (data) => {
+  if(data) {
+   $("#corsairpsu_status").empty();
+   $.each(data, (i, element) => $("#corsairpsu_status").append(`<td>${element}</td>`));
+  }
+<?if ($update):?>
+  setTimeout(corsairpsu_status, <?=max(abs($display["refresh"]),2000)?>);
+<?endif;?>
+ });
+};
+$(corsairpsu_status);
+</script>
+<table class="tablesorter shift corsairpsu">
+<thead>
+ <tr>
+  <th>Uptime</th>
+  <th>Temp1 / Temp2</th>
+  <th>Fan RPM</th>
+  <th>Supply Volts</th>
+  <th>Nominal Power</th>
+  <th>GPU Load</th>
+  <th>PSU Load</th>
+  <th>PSU Load %</th>
+ </tr>
+</thead>
+<tbody>
+ <tr id="corsairpsu_status">
+  <td colspan="8">Loading...</td>
+ </tr>
+</tbody>
+</table>
