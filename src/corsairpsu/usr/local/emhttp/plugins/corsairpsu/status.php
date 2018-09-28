@@ -1,5 +1,5 @@
 <?php
-$stdout = shell_exec("/usr/local/bin/corsairmi 2>/dev/null");
+$stdout = shell_exec("/usr/local/bin/corsairmi 2>&1");
 $re = "/(?<key>[^:]+):\s+\'*(?<value>[^\n\']+)\'*\s*/";
 preg_match_all($re, $stdout, $matches, PREG_SET_ORDER, 0);
 foreach($matches as $match)
