@@ -22,16 +22,17 @@ $(corsairpsu_status);
   <th>Uptime</th>
   <th>Temp1 / Temp2</th>
   <th>Fan RPM</th>
-  <th>Supply Volts</th>
-  <th>Nominal Power</th>
-  <th>GPU Load</th>
-  <th>PSU Load</th>
-  <th>PSU Load %</th>
+  <th>Capacity</th>
+  <th>12v Load</th>
+  <th>5v Load</th>
+  <th>3.3v Load</th>
+  <th>PSU Load (Wattage)</th>
+  <th>PSU Load (%)</th>
  </tr>
 </thead>
 <tbody>
  <tr id="corsairpsu_status">
-  <td colspan="8">Loading...</td>
+  <td colspan="10">Loading...</td>
  </tr>
 </tbody>
 </table>
