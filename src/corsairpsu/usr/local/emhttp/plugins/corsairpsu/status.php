@@ -8,12 +8,15 @@ if(!isset($data))
  exit(json_encode(array($stdout)));
 $capacity = filter_var($data["product"], FILTER_SANITIZE_NUMBER_INT);
 $load = round($data["total watts"] / $capacity * 100);
-echo json_encode(array($data["uptime"],
+preg_match('/\((.*?)\)/', $data["uptime"], $matches);
+$uptime = $matches[1];
+echo json_encode(array($uptime,
 "{$data["temp1"]} / {$data["temp2"]}",
 $data["fan rpm"],
-$data["supply volts"],
-$capacity,
-"{$data["output0 watts"]} Watts",
-"{$data["total watts"]} Watts",
-$load));
+"{$capacity}W",
+"{$data["output0 watts"]}W",
+"{$data["output1 watts"]}W",
+"{$data["output2 watts"]}W",
+"{$data["total watts"]}W",
+"{$load}%"));
 ?>
