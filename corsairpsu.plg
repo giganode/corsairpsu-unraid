@@ -14,7 +14,7 @@
 <PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;">
  <FILE Name="&plgPATH;/&plgNAME;.txz" Min="6.4" Run="upgradepkg --install-new">
   <URL>&pkgURL;/&plgNAME;.txz</URL>
-  <MD5>4DA7037A62D22F805BD4A5365CB72608</MD5>
+  <MD5>4da7037a62d22f805bd4a5365cb72608</MD5>
  </FILE>
  <FILE Run="/bin/bash" Method="remove">
   <INLINE>
