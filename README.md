@@ -5,5 +5,5 @@ This plugin is a wrapper for [corsairmi](https://github.com/notaz/corsairmi) whi
 ## Usage
 Plugins > Install Plugin
 ```
-https://raw.githubusercontent.com/realies/corsairpsu-unraid/master/corsairpsu.plg
+https://raw.githubusercontent.com/Fma965/corsairpsu-unraid/master/corsairpsu.plg
 ```
