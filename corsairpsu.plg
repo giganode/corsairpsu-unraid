@@ -1,10 +1,10 @@
 <?xml version='1.0' standalone='yes'?>
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
-<!ENTITY author    "Fma965">
+<!ENTITY author    "realies, Modified by Fma965">
 <!ENTITY version   "2019.12.24">
 <!ENTITY launch    "Dashboard">
-<!ENTITY gitURL    "https://raw.githubusercontent.com/&author;/&name;-unraid/master">
+<!ENTITY gitURL    "https://raw.githubusercontent.com/Fma965/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
 <!ENTITY pkgURL    "&gitURL;/pkg">
 <!ENTITY plgPATH   "/boot/config/plugins/&name;">
@@ -14,6 +14,7 @@
 <PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;">
  <FILE Name="&plgPATH;/&plgNAME;.txz" Min="6.4" Run="upgradepkg --install-new">
   <URL>&pkgURL;/&plgNAME;.txz</URL>
+  <MD5>7363301f9906c3b50ccfed2e7021fd5e</MD5>
  </FILE>
  <FILE Run="/bin/bash" Method="remove">
   <INLINE>
