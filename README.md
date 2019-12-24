@@ -3,7 +3,7 @@ This plugin is a wrapper for [corsairmi](https://github.com/notaz/corsairmi) whi
 
 Originally created by Realies, Modified by Fma965 for more accurate statistics (for RM1000i atleast)
 
-![Screenshot](https://i.imgur.com/uuzSige.png)
+![Screenshot](https://i.imgur.com/HVfenmb.png)
 
 ## Usage
 Plugins > Install Plugin
