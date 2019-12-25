@@ -1,13 +1,112 @@
 Menu="Dashboard:1"
-Title="Corsair PSU"
 Cond="file_exists('/usr/local/bin/corsairmi')"
 ---
 <script>
+$(function(){
+var corsairrmi = `
+<tbody sort="1" class="sortable ui-sortable-handle">
+    <tr>
+        <td></td>
+        <td colspan="3" class="next">
+            <i class="icon-ups"></i>
+            <div class="section">Power Statistics
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <span class="header">Model</span><span class="text"><br><span id="corsair-vendor"></span> <span id="corsair-product"></span> (<span id="corsair-capacity"></span>)</span>
+            <br><br>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <span class="header">Power Usage</span>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <table>
+                <tr>
+                    <td style="width: 20%; text-decoration:underline;"><span class="header">12v</span></td>
+                    <td style="width: 20%; text-decoration:underline;"><span class="header">5v</span></td>
+                    <td style="width: 20%; text-decoration:underline;"><span class="header">3.3v</span></td>
+                    <td style="width: 20%; text-decoration:underline;"><span class="header">Load</span></td>
+                    <td style="width: 20%; text-decoration:underline;"><span class="header">Percentage</span></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;"><span id="corsair-12v_watts"></span></td>
+                    <td style="width: 20%;"><span id="corsair-5v_watts"></span></td>
+                    <td style="width: 20%;"><span id="corsair-3v_watts"></span></td>
+                    <td style="width: 20%;"><span id="corsair-watts"></span></td>
+                    <td style="width: 20%;"><span id="corsair-load"></span></td>
+                </tr>
+            </table>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <span class="header">Uptime</span><span class="text"><br>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="3">
+		<table>
+			<tr>
+				<td style="width: 50%; text-decoration:underline;"><span class="header">Uptime</span></td>
+				<td style="width: 50%; text-decoration:underline;"><span class="header">Total Power On Hours</span></td>
+			</tr>
+			<tr>
+				<td style="width: 50%;"><span id="corsair-uptime"></span></td>
+				<td style="width: 50%;"><span id="corsair-poweredon"></span></td>
+			</tr>
+		</table>
+		</td>
+		<td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <span class="header">Temperature / Fan</span>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <table>
+                <tr>
+                    <td style="width: 33%; text-decoration:underline;"><span class="header">Temp 1</span></td>
+                    <td style="width: 33%; text-decoration:underline;"><span class="header">Temp 2</span></td>
+                    <td style="width: 33%; text-decoration:underline;"><span class="header">Fan Speed</span></td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;"><span id="corsair-temp1"></span></td>
+                    <td style="width: 33%;"><span id="corsair-temp2"></span></td>
+                    <td style="width: 33%;"><span id="corsair-fan_rpm"></span></td>
+                </tr>
+            </table>
+        </td>
+        <td></td>
+    </tr>
+</tbody>`
+    $("#db-box1").append(corsairrmi);
+});
 const corsairpsu_status = () => {
  $.getJSON("/plugins/corsairpsu/status.php", (data) => {
   if(data) {
-   $("#corsairpsu_status").empty();
-   $.each(data, (i, element) => $("#corsairpsu_status").append(`<td>${element}</td>`));
+	$.each(data, function (key, data) {
+		$("#corsair-"+key).html(data);
+    })
   }
 <?if ($update):?>
   setTimeout(corsairpsu_status, <?=max(abs($display["refresh"]),2000)?>);
@@ -16,23 +115,3 @@ const corsairpsu_status = () => {
 };
 $(corsairpsu_status);
 </script>
-<table class="tablesorter shift corsairpsu">
-<thead>
- <tr>
-  <th>Uptime</th>
-  <th>Temp1 / Temp2</th>
-  <th>Fan RPM</th>
-  <th>Capacity</th>
-  <th>12v Load</th>
-  <th>5v Load</th>
-  <th>3.3v Load</th>
-  <th>PSU Load (Wattage)</th>
-  <th>PSU Load (%)</th>
- </tr>
-</thead>
-<tbody>
- <tr id="corsairpsu_status">
-  <td colspan="10">Loading...</td>
- </tr>
-</tbody>
-</table>
