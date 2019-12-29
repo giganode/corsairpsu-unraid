@@ -16,10 +16,10 @@ This is a work in progress version utilizing the new dashboard layout, there is 
 Plugins > Install Plugin
 V1
 ```
-https://raw.githubusercontent.com/Fma965/corsairpsu-unraid/master/corsairpsu.plg
+https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/master/corsairpsu.plg
 ```
 
 V2
 ```
-https://raw.githubusercontent.com/Fma965/corsairpsu-unraid/master/corsairpsu-beta.plg
+https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/master/corsairpsu-beta.plg
 ```
