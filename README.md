@@ -19,7 +19,7 @@ V1
 https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/master/corsairpsu.plg
 ```
 
-V2
+V2 BETA
 ```
-https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/master/corsairpsu-beta.plg
+https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/beta/corsairpsu.plg
 ```
