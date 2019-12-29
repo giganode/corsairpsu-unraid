@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu-beta">
 <!ENTITY author    "realies, Modified by Fma965">
-<!ENTITY version   "2019.12.25-beta">
+<!ENTITY version   "2019.12.25">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/master">
 <!ENTITY pluginURL "&gitURL;/corsairpsu.plg">
