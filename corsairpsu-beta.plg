@@ -1,28 +1,28 @@
 <?xml version='1.0' standalone='yes'?>
 <!DOCTYPE PLUGIN [
-<!ENTITY name      "corsairpsu">
+<!ENTITY name      "corsairpsu-beta">
 <!ENTITY author    "realies, Modified by Fma965">
 <!ENTITY version   "2019.12.25-beta">
 <!ENTITY launch    "Dashboard">
-<!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/&name;-unraid/master">
-<!ENTITY pluginURL "&gitURL;/&name;.plg">
+<!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/master">
+<!ENTITY pluginURL "&gitURL;/corsairpsu.plg">
 <!ENTITY pkgURL    "&gitURL;/pkg">
-<!ENTITY plgPATH   "/boot/config/plugins/&name;">
-<!ENTITY plgNAME   "&name;-&version;-x86_64">
-<!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
+<!ENTITY plgPATH   "/boot/config/plugins/corsairpsu">
+<!ENTITY plgNAME   "corsairpsu-&version;-x86_64">
+<!ENTITY emhttp    "/usr/local/emhttp/plugins/corsairpsu">
 ]>
-<PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;">
+<PLUGIN name="corsairpsu" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;">
  <FILE Name="&plgPATH;/&plgNAME;.txz" Min="6.4" Run="upgradepkg --install-new">
   <URL>&pkgURL;/&plgNAME;.txz</URL>
   <MD5>0a852adb3bc3a6100cb606ffff8b6abc</MD5>
  </FILE>
  <FILE Run="/bin/bash" Method="remove">
   <INLINE>
-   echo "Removing &name;..."
+   echo "Removing corsairpsu..."
    removepkg &plgPATH;/*.txz
    rm -rf &plgPATH;
    rm -rf &emhttp;
-   echo "&name; has been removed"
+   echo "corsairpsu has been removed"
   </INLINE>
  </FILE>
 </PLUGIN>
