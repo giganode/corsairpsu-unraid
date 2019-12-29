@@ -4,7 +4,7 @@
 <!ENTITY author    "realies, Modified by Fma965">
 <!ENTITY version   "2019.12.24">
 <!ENTITY launch    "Dashboard">
-<!ENTITY gitURL    "https://raw.githubusercontent.com/Fma965/&name;-unraid/master">
+<!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
 <!ENTITY pkgURL    "&gitURL;/pkg">
 <!ENTITY plgPATH   "/boot/config/plugins/&name;">
