@@ -1,106 +1,73 @@
-Menu="Dashboard:1"
+Menu="Dashboard"
+Icon="ups"
 Cond="file_exists('/usr/local/bin/corsairmi')"
 ---
+<style type="text/css">
+	.dash_corsairpsu_toggle {display:none;}	
+	.dash_corsairpsu_header {padding-top: 20px !important;}	
+	.dash_corsairpsu_section {
+		line-height:1.4em !important;
+		margin-left:-4px !important;
+	}
+</style>
+
+<table id="db-box1" class="dash_corsairpsu dashboard box1" style="display:none">
+    <thead sort="965" class="sortable">
+        <tr>
+            <td></td>
+            <td class="next dash_corsairpsu_header" colspan="3">
+                <i class="icon-ups"></i>
+                <div class="section dash_corsairpsu_section">Power Supply
+                    <br>
+                    <span id="corsair-vendor"></span> <span id="corsair-product"></span> (<span id="corsair-capacity"></span>)
+                    <span id="util">Utilization: <span id="corsair-load"></span>% (<span id="corsair-watts"></span>W)</span>
+                    </span>
+                    <br>
+                </div>
+                <i class="fa fa-fw chevron mt0" id="dash_corsairpsu_toggle" onclick="toggleChevron('dash_corsairpsu_toggle',0)"></i>
+            </td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody class="dash_corsairpsu_toggle sortable" sort="965">
+        <tr>
+            <td></td>
+            <td><span class="header" style="text-decoration:underline;">12v Utilization</span></td>
+            <td><span class="header" style="text-decoration:underline;">5v Utilization</span></td>
+            <td><span class="header" style="text-decoration:underline;">3v Utilization</span></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><span id="corsair-12v_load"></span>% (<span id="corsair-12v_watts"></span>W) </td>
+            <td><span id="corsair-5v_load"></span>% (<span id="corsair-5v_watts"></span>W)</td>
+            <td><span id="corsair-3v_load"></span>% (<span id="corsair-3v_watts"></span>W)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Temperature / Fan</td>
+            <td><span id="corsair-temp1_raw"></span> / <span id="corsair-temp2"></span></td>
+            <td><span id="corsair-fan_rpm"></span></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Uptime</td>
+            <td><span id="corsair-uptime"></span></td>
+            <td><span id="corsair-poweredon"></span> Total</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
 <script>
-$(function(){
-var corsairrmi = `
-<tbody sort="1" class="sortable ui-sortable-handle">
-    <tr>
-        <td></td>
-        <td colspan="3" class="next">
-            <i class="icon-ups"></i>
-            <div class="section">Power Statistics
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td colspan="3">
-            <span class="header">Model</span><span class="text"><br><span id="corsair-vendor"></span> <span id="corsair-product"></span> (<span id="corsair-capacity"></span>)</span>
-            <br><br>
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td colspan="3">
-            <span class="header">Power Usage</span>
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td colspan="3">
-            <table>
-                <tr>
-                    <td style="width: 20%; text-decoration:underline;"><span class="header">12v</span></td>
-                    <td style="width: 20%; text-decoration:underline;"><span class="header">5v</span></td>
-                    <td style="width: 20%; text-decoration:underline;"><span class="header">3.3v</span></td>
-                    <td style="width: 20%; text-decoration:underline;"><span class="header">Load</span></td>
-                    <td style="width: 20%; text-decoration:underline;"><span class="header">Percentage</span></td>
-                </tr>
-                <tr>
-                    <td style="width: 20%;"><span id="corsair-12v_watts"></span></td>
-                    <td style="width: 20%;"><span id="corsair-5v_watts"></span></td>
-                    <td style="width: 20%;"><span id="corsair-3v_watts"></span></td>
-                    <td style="width: 20%;"><span id="corsair-watts"></span></td>
-                    <td style="width: 20%;"><span id="corsair-load"></span></td>
-                </tr>
-            </table>
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td colspan="3">
-            <span class="header">Uptime</span><span class="text"><br>
-		</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td colspan="3">
-		<table>
-			<tr>
-				<td style="width: 50%; text-decoration:underline;"><span class="header">Uptime</span></td>
-				<td style="width: 50%; text-decoration:underline;"><span class="header">Total Power On Hours</span></td>
-			</tr>
-			<tr>
-				<td style="width: 50%;"><span id="corsair-uptime"></span></td>
-				<td style="width: 50%;"><span id="corsair-poweredon"></span></td>
-			</tr>
-		</table>
-		</td>
-		<td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td colspan="3">
-            <span class="header">Temperature / Fan</span>
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td colspan="3">
-            <table>
-                <tr>
-                    <td style="width: 33%; text-decoration:underline;"><span class="header">Temp 1</span></td>
-                    <td style="width: 33%; text-decoration:underline;"><span class="header">Temp 2</span></td>
-                    <td style="width: 33%; text-decoration:underline;"><span class="header">Fan Speed</span></td>
-                </tr>
-                <tr>
-                    <td style="width: 33%;"><span id="corsair-temp1"></span></td>
-                    <td style="width: 33%;"><span id="corsair-temp2"></span></td>
-                    <td style="width: 33%;"><span id="corsair-fan_rpm"></span></td>
-                </tr>
-            </table>
-        </td>
-        <td></td>
-    </tr>
-</tbody>`
-    $("#db-box1").append(corsairrmi);
-});
 const corsairpsu_status = () => {
  $.getJSON("/plugins/corsairpsu/status.php", (data) => {
   if(data) {
@@ -114,4 +81,15 @@ const corsairpsu_status = () => {
  });
 };
 $(corsairpsu_status);
+
+$(function() {
+  // append data from the table into the correct one
+  $("#db-box1").append($(".dash_corsairpsu").html());
+  
+  // reload toggle to get the correct state
+  toggleView('dash_corsairpsu_toggle',true);
+  
+  // reload sorting to get the stored data (cookie)
+  sortTable($('#db-box1'),$.cookie('db-box1'));
+});
 </script>

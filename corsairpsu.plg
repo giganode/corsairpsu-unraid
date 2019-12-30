@@ -1,8 +1,8 @@
 <?xml version='1.0' standalone='yes'?>
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
-<!ENTITY author    "realies, Modified by Fma965">
-<!ENTITY version   "2019.12.24">
+<!ENTITY author    "Fma965">
+<!ENTITY version   "2019.12.30">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
@@ -14,7 +14,7 @@
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;">
  <FILE Name="&plgPATH;/&plgNAME;.txz" Min="6.4" Run="upgradepkg --install-new">
   <URL>&pkgURL;/&plgNAME;.txz</URL>
-  <MD5>4991a2c1f0729fcbb98b614a25e890ff</MD5>
+  <MD5>799b62cdfcc4df2ea82f9a1e53906b35</MD5>
  </FILE>
  <FILE Run="/bin/bash" Method="remove">
   <INLINE>
