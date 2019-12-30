@@ -1,7 +1,7 @@
 <?xml version='1.0' standalone='yes'?>
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
-<!ENTITY author    "realies, Modified by Fma965">
+<!ENTITY author    "Fma965">
 <!ENTITY version   "2019.12.30a">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/&name;-unraid/master">
