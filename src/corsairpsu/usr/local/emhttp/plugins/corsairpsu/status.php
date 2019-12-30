@@ -22,14 +22,10 @@ preg_match('/\((.*?)\)/', $data['powered'], $poweredon);
 
 // Adds the keys and values to an array, named appropiately
 $json = array(
-    'temp1' => "{$data['temp1']} °c",
-    'temp1_raw' => $data['temp1'],
-    'temp2' => "{$data['temp2']} °c",
-    'temp2_raw' => $data['temp2'],
-    'fan_rpm' => "{$data['fan rpm']} RPM",
-    'fan_rpm_raw' => $data['fan rpm'],
-    'capacity' => "{$capacity}W",
-    'capacity_raw' => $capacity,
+    'temp1' => $data['temp1'],
+    'temp2' => $data['temp2'],
+    'fan_rpm' => $data['fan rpm'],
+    'capacity' => $capacity,
     "{$output0}v_watts" => $data['output0 watts'],
     "{$output1}v_watts" => $data['output1 watts'],
     "{$output2}v_watts" => $data['output2 watts'],
