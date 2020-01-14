@@ -4,14 +4,16 @@ if (file_exists("/boot/config/plugins/corsairpsu/corsairpsu.cfg")) {
 } else {
 	$settings["TYPE"] = "corsairmi";
 }
+
 if ($settings["TYPE"] == "corsairmi") {
 	$stdout = shell_exec('/usr/local/bin/corsairmi 2>&1');
 } elseif ($settings["TYPE"] == "cpsumoncli") {
 	$stdout = shell_exec('/usr/local/bin/cpsumon/cpsumoncli ' . $settings["TTY"] . ' 2>&1');
-	//Debug Testing - $stdout = file_get_contents("https://raw.githubusercontent.com/CyanLabs/corsairpsu-unraid/master/axoutput-example.txt");
+	//$stdout = file_get_contents("https://raw.githubusercontent.com/CyanLabs/corsairpsu-unraid/master/axoutput-example.txt"); - Debug Testing	
 } else {
 	die("There is an error with your configuration!");
 }
+
 $re     = '/(?<key>[^:]+):\s+\'*(?<value>[^\n\']+)\'*\s*/';
 preg_match_all($re, $stdout, $matches, PREG_SET_ORDER, 0);
 foreach ($matches as $match)
@@ -59,7 +61,6 @@ if ($settings["TYPE"] == "corsairmi") {
 		'efficiency' => 0
 	);	
 } else {
-	
 	$capacity = filter_var($data["PSU type"], FILTER_SANITIZE_NUMBER_INT);
 	$input = floatval($data['Input power']);
 	$load = round($input / $capacity * 100);
