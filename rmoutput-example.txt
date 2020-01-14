@@ -1,0 +1,21 @@
+RMi Output
+--------------------
+name:           'RM1000i'
+vendor:         'CORSAIR'
+product:        'RM1000i'
+powered:        15469972 (179d. 1h)
+uptime:         933172 (10d. 19h)
+temp1:           44.5
+temp2:           37.2
+fan rpm:          0.0
+supply volts:   230.0
+total watts:     96.0
+output0 volts:   12.1
+output0 amps:     5.5
+output0 watts:   66.0
+output1 volts:    5.0
+output1 amps:     4.2
+output1 watts:   21.0
+output2 volts:    3.3
+output2 amps:     3.3
+output2 watts:   10.5
