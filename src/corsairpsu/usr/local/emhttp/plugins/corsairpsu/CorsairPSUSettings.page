@@ -1,0 +1,36 @@
+Menu="Utilities"
+Icon="corsairpsu.png"
+Title="Corsair PSU"
+---
+<?php
+$corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
+$corsairpsu_type 	= isset($corsairpsu_cfg['TYPE']) ? $corsairpsu_cfg['TYPE'] : "corsairmi";
+$corsairpsu_tty 	= isset($corsairpsu_cfg['TTY']) ? $corsairpsu_cfg['TTY'] : "/dev/ttyUSB0";
+?>
+<b><font style='color:cyan;'>Corsair PSU Statistics</font></b>
+<form markdown="1" method="POST" action="/update.php" target="progressFrame">
+<input type="hidden" name="#file" value="corsairpsu/corsairpsu.cfg" />
+
+Power Supply Type:
+: <select id="TYPE" name="TYPE" size="1">
+  <?=mk_option($corsairpsu_type, "corsairmi", "RMi/HXi");?>
+  <?=mk_option($corsairpsu_type, "cpsumoncli", "AXi");?>
+  </select>
+
+Serial Device (Only needed for AXi PSU's):
+: <input id="TTY" type="text" class="stopped" name="TTY" maxlength="40" value="<?=$corsairpsu_tty;?>" title="/dev/ttyUSBX" placeholder="/dev/ttyUSB0" >  
+
+> Please note that AXi PSU's use a different method to communicate and therefore some additional configuration may be required. <br />
+> Please visit <a href="https://forums.unraid.net/topic/86715-corsair-psu-statistics-inteligent-psus-fma965s-fork/">https://forums.unraid.net/topic/86715-corsair-psu-statistics-inteligent-psus-fma965s-fork/</a> for further information.
+
+
+ <input id="DEFAULT" class="stopped" type="submit" value="Default" onClick="resetDATA(this.form)">
+: <input id="btnApply" type="submit" value="Apply"><input type="button" value="Done" onClick="done()">
+</form>
+
+
+<script type="text/javascript">
+function resetDATA(form) {
+	form.TTY.value = "/dev/ttyUSB0";
+}
+</script>

@@ -1,6 +1,5 @@
 Menu="Dashboard"
 Icon="ups"
-Cond="file_exists('/usr/local/bin/corsairmi')"
 ---
 <style type="text/css">
 	.dash_corsairpsu_toggle {display:none;}	
