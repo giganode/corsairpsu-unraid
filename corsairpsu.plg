@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "Fma965">
-<!ENTITY version   "2019.01.14a">
+<!ENTITY version   "2020.01.14a">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/&name;-unraid/dual">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
