@@ -1,0 +1,26 @@
+--------------------
+Corsair AXi Series PSU Monitor
+(c) 2014 Andras Kovacs - andras@sth.sze.hu
+-------------------------------------------
+
+Dongle name: USB to SMB Bridge (Firmware by Ross Fosler)
+Dongle version: 0.9
+PSU type: AX860i
+Fan mode: Auto
+Fan speed: 0.00 RPM
+Temperature: 39.75 °C
+Voltage: 222.00 V
+Current: 0.62 A
+Input power: 133.38 W
+Output power: 118.73 W
+Efficiency: 89.02 %
+PCIe 00 Rail:    12.00 V, 0.00 A, 0.00 W, OCP disabled (Limit: 40.00 A)
+PCIe 01 Rail:    12.02 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 29.94 A)
+PCIe 02 Rail:    12.02 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 30.00 A)
+PCIe 03 Rail:    12.00 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 29.94 A)
+PCIe 04 Rail:    12.02 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 29.94 A)
+PCIe 05 Rail:    12.02 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 30.00 A)
+ATX Rail:        12.00 V, 0.00 A, 0.00 W, OCP disabled (Limit: 40.00 A)
+Peripheral Rail: 12.00 V, 3.00 A, 37.50 W, OCP enabled  (Limit: 29.94 A)
+5V Rail:         5.02 V, 3.75 A, 18.65 W
+3.3V Rail:       3.31 V, 3.81 A, 12.56 W
