@@ -1,11 +1,14 @@
 <?php
-$settings = parse_ini_file( "/boot/config/plugins/corsairpsu/corsairpsu.cfg" );
-
+if (file_exists("/boot/config/plugins/corsairpsu/corsairpsu.cfg")) {
+	$settings = parse_ini_file( "/boot/config/plugins/corsairpsu/corsairpsu.cfg" );
+} else {
+	$settings["TYPE"] = "corsairmi";
+}
 if ($settings["TYPE"] == "corsairmi") {
 	$stdout = shell_exec('/usr/local/bin/corsairmi 2>&1');
 } elseif ($settings["TYPE"] == "cpsumoncli") {
 	$stdout = shell_exec('/usr/local/bin/cpsumon/cpsumoncli ' . $settings["TTY"] . ' 2>&1');
-	//Debug Testing - $stdout = file_get_contents("/usr/local/emhttp/plugins/corsairpsu/text.txt");
+	//Debug Testing - $stdout = file_get_contents("https://raw.githubusercontent.com/CyanLabs/corsairpsu-unraid/master/axoutput-example.txt");
 } else {
 	die("There is an error with your configuration!");
 }
@@ -32,8 +35,6 @@ if ($settings["TYPE"] == "corsairmi") {
 	// Removes raw timestamp on uptime / total hours leaving just the Xd, Xh text
 	preg_match('/\((.*?)\)/', $data['uptime'], $uptime);
 	preg_match('/\((.*?)\)/', $data['powered'], $poweredon);
-	
-	$efficiency = 
 
 	// Adds the keys and values to an array, named appropiately
 	$json = array(
@@ -62,7 +63,6 @@ if ($settings["TYPE"] == "corsairmi") {
 	$capacity = filter_var($data["PSU type"], FILTER_SANITIZE_NUMBER_INT);
 	$input = floatval($data['Input power']);
 	$load = round($input / $capacity * 100);
-
 
 	$rail_5v = explode(",", $data['5V Rail']);
 	$rail_3v = explode(",", $data['3.3V Rail']);
@@ -101,27 +101,4 @@ if ($settings["TYPE"] == "corsairmi") {
 }
 header('Content-Type: application/json');
 echo json_encode($json);
-
-/*
-$data["Dongle version"] => 0.9
-$data["PSU type"] => AX860i
-$data["Fan mode"] => Auto
-$data["Fan speed"] => 0.00 RPM
-$data["Temperature"] => 39.75 °C
-$data["Voltage"] => 222.00 V
-$data["Current"] => 0.62 A
-$data["Input power"] => 133.38 W
-$data["Output power"] => 118.73 W
-$data["Efficiency"] => 89.02 %
-$data["PCIe 00 Rail"] => 12.00 V, 0.00 A, 0.00 W, OCP disabled (Limit: 40.00 A)
-$data["PCIe 01 Rail"] => 12.02 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 29.94 A)
-$data["PCIe 02 Rail"] => 12.02 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 30.00 A)
-$data["PCIe 03 Rail"] => 12.00 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 29.94 A)
-$data["PCIe 04 Rail"] => 12.02 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 29.94 A)
-$data["PCIe 05 Rail"] => 12.02 V, 0.00 A, 0.00 W, OCP enabled  (Limit: 30.00 A)
-$data["ATX Rail"] => 12.00 V, 0.00 A, 0.00 W, OCP disabled (Limit: 40.00 A)
-$data["Peripheral Rail"] => 12.00 V, 3.00 A, 37.50 W, OCP enabled  (Limit: 29.94 A)
-$data["5V Rail"] => 5.02 V, 3.75 A, 18.65 W
-$data["3.3V Rail"] => 3.31 V, 3.81 A, 12.56 W
-*/
 ?>
