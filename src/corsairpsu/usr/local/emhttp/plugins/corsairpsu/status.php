@@ -9,7 +9,7 @@ if ($settings["TYPE"] == "corsairmi") {
 	$stdout = shell_exec('/usr/local/bin/corsairmi 2>&1');
 } elseif ($settings["TYPE"] == "cpsumoncli") {
 	$stdout = shell_exec('/usr/local/bin/cpsumon/cpsumoncli ' . $settings["TTY"] . ' 2>&1');
-	//$stdout = file_get_contents("https://raw.githubusercontent.com/CyanLabs/corsairpsu-unraid/master/axoutput-example.txt"); - Debug Testing	
+	//$stdout = file_get_contents("https://raw.githubusercontent.com/CyanLabs/corsairpsu-unraid/master/axoutput-example.txt"); //- Debug Testing	
 } else {
 	die("There is an error with your configuration!");
 }
@@ -58,7 +58,7 @@ if ($settings["TYPE"] == "corsairmi") {
 		'uptime_raw' => substr($data['uptime'], 0, strpos($data['uptime'], ' ')),
 		'poweredon' => $poweredon[1],
 		'poweredon_raw' => substr($data['powered'], 0, strpos($data['powered'], ' ')),
-		'efficiency' => 0
+		'efficiency' => "Not Supported"
 	);	
 } else {
 	$capacity = filter_var($data["PSU type"], FILTER_SANITIZE_NUMBER_INT);
@@ -93,10 +93,10 @@ if ($settings["TYPE"] == "corsairmi") {
 		"3v_load" => $rail_3v_load,
 		'vendor' => "CORSAIR",
 		'product' => str_replace("\r","",$data["PSU type"]),
-		'uptime' => 0,
-		'uptime_raw' => 0,
-		'poweredon' => 0,
-		'poweredon_raw' => 0,
+		'uptime' => "Not Supported",
+		'uptime_raw' => "Not Supported",
+		'poweredon' => "Not Supported",
+		'poweredon_raw' => "Not Supported",
 		'efficiency' => floatval($data['Efficiency'])
 	);
 }

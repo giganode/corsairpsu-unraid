@@ -2,7 +2,18 @@ Menu="Dashboard"
 Icon="ups"
 ---
 <style type="text/css">
-	.dash_corsairpsu_toggle {display:none;}	
+<?php
+	$corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
+	if ($corsairpsu_cfg["TYPE"] == "corsairmi") {
+		echo '.corsair-uptime-rm td { padding-bottom: 20px !important;}';
+		echo '.corsair-efficiency-ax { display:none; }';
+		echo '.corsair-temp-ax { display:none; }';
+	} else {	
+		echo '.corsair-uptime-rm { display:none; }';
+		echo '.corsair-temp-rm { display:none; }';
+	}
+?>
+	#dash_corsairpsu_settings i, #dash_corsairpsu_toggle {margin-top:0px;}	
 	.dash_corsairpsu_header {padding-top: 20px}	
 	.dash_corsairpsu_section {
 		line-height:1.4em !important;
@@ -10,7 +21,6 @@ Icon="ups"
 	}
 	.dash_corsairpsu_table_header {text-decoration:underline;}
 </style>
-
 <table id="db-box1" class="dash_corsairpsu dashboard box1" style="display:none">
     <thead sort="965" class="sortable">
         <tr>
@@ -19,12 +29,14 @@ Icon="ups"
                 <i class="icon-ups"></i>
                 <div class="section dash_corsairpsu_section">Power Supply
                     <br>
-                    <span id="corsair-vendor"></span> <span id="corsair-product"></span> (<span id="corsair-capacity"></span>W)
-                    <span id="util">Utilization: <span id="corsair-load"></span>% (<span id="corsair-watts"></span>W)</span>
+                    <span class="corsair-vendor"></span> <span class="corsair-product"></span> (<span class="corsair-capacity"></span>W)
+                    <span id="util">Utilization: <span class="corsair-load"></span>% (<span class="corsair-watts"></span>W)</span>
                     </span>
                     <br>
                 </div>
                 <i class="fa fa-fw chevron mt0" id="dash_corsairpsu_toggle" onclick="toggleChevron('dash_corsairpsu_toggle',0)"></i>
+				<a href="/Settings/CorsairPSUSettings" id="dash_corsairpsu_settings" title="Go to Corsair PSU settings"><i class="fa fa-fw fa-cog chevron mt0"></i></a>
+				
             </td>
             <td></td>
         </tr>
@@ -39,26 +51,37 @@ Icon="ups"
         </tr>
         <tr>
             <td></td>
-            <td><span id="corsair-12v_load"></span>% (<span id="corsair-12v_watts"></span>W) </td>
-            <td><span id="corsair-5v_load"></span>% (<span id="corsair-5v_watts"></span>W)</td>
-            <td><span id="corsair-3v_load"></span>% (<span id="corsair-3v_watts"></span>W)</td>
+            <td><span class="corsair-12v_load"></span>% (<span class="corsair-12v_watts"></span>W) </td>
+            <td><span class="corsair-5v_load"></span>% (<span class="corsair-5v_watts"></span>W)</td>
+            <td><span class="corsair-3v_load"></span>% (<span class="corsair-3v_watts"></span>W)</td>
             <td></td>
         </tr>
-        <tr>
-			<td colspan="5"><br></td>
-        </tr>
-        <tr>
+        <tr><td colspan="5"></td></tr><tr><td colspan="5"></td></tr>
+        <tr class="corsair-temp-rm">
             <td></td>
             <td>Temperature / Fan</td>
-            <td><span id="corsair-temp1"></span> / <span id="corsair-temp2"></span> °c</td>
-            <td><span id="corsair-fan_rpm"></span> RPM</td>
+            <td><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °c</td>
+            <td><span class="corsair-fan_rpm"></span> RPM</td>
             <td></td>
         </tr>
-        <tr>
+		<tr class="corsair-temp-ax">
+            <td></td>
+            <td>Temperature / Fan</td>
+            <td><span class="corsair-temp1"></span> °c</td>
+            <td><span class="corsair-fan_rpm"></span> RPM</td>
+            <td></td>
+        </tr>
+        <tr class="corsair-uptime-rm">
             <td></td>
             <td>Uptime</td>
-            <td><span id="corsair-uptime"></span></td>
-            <td><span id="corsair-poweredon"></span> Total</td>
+            <td><span class="corsair-uptime"></span></td>
+            <td><span class="corsair-poweredon"></span> Total</td>
+            <td></td>
+        </tr>
+		<tr class="corsair-efficiency-ax">
+            <td></td>
+            <td>Efficiency</td>
+            <td colspan="2"><span class="corsair-efficiency"></span>%</td>
             <td></td>
         </tr>
     </tbody>
@@ -69,7 +92,7 @@ const corsairpsu_status = () => {
  $.getJSON("/plugins/corsairpsu/status.php", (data) => {
   if(data) {
 	$.each(data, function (key, data) {
-		$("#corsair-"+key).html(data);
+		$(".corsair-"+key).html(data);
     })
   }
 <?if ($update):?>

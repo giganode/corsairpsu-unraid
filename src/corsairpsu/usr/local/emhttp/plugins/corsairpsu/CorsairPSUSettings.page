@@ -3,7 +3,7 @@ Icon="corsairpsu.png"
 Title="Corsair PSU"
 ---
 <?php
-$corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
+$corsairpsu_cfg 	= parse_plugin_cfg("corsairpsu",true);
 $corsairpsu_type 	= isset($corsairpsu_cfg['TYPE']) ? $corsairpsu_cfg['TYPE'] : "corsairmi";
 $corsairpsu_tty 	= isset($corsairpsu_cfg['TTY']) ? $corsairpsu_cfg['TTY'] : "/dev/ttyUSB0";
 ?>
