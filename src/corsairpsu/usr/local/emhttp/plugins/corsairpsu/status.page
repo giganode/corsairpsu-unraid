@@ -4,13 +4,13 @@ Icon="ups"
 <style type="text/css">
 <?php
 	$corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
-	if ($corsairpsu_cfg["TYPE"] == "corsairmi") {
+	if ($corsairpsu_cfg["TYPE"] == "cpsumoncli") {
+		echo '.corsair-uptime-rm { display:none; }';
+		echo '.corsair-temp-rm { display:none; }';
+	} else {	
 		echo '.corsair-uptime-rm td { padding-bottom: 20px !important;}';
 		echo '.corsair-efficiency-ax { display:none; }';
 		echo '.corsair-temp-ax { display:none; }';
-	} else {	
-		echo '.corsair-uptime-rm { display:none; }';
-		echo '.corsair-temp-rm { display:none; }';
 	}
 ?>
 	#dash_corsairpsu_settings i, #dash_corsairpsu_toggle {margin-top:0px;}	
