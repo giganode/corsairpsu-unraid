@@ -10,5 +10,5 @@ Originally created by Realies, Modified by Fma965 for more accurate statistics, 
 ## Usage
 Plugins > Install Plugin (or it can be installed from the Community Apps plugin)
 ```
-https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/dual/corsairpsu.plg
+https://raw.githubusercontent.com/Cyanlabs/corsairpsu-unraid/master/corsairpsu.plg
 ```
