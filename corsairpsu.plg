@@ -2,9 +2,9 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "Fma965">
-<!ENTITY version   "2020.01.14a">
+<!ENTITY version   "2020.01.17">
 <!ENTITY launch    "Dashboard">
-<!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/&name;-unraid/dual">
+<!ENTITY gitURL    "https://raw.githubusercontent.com/Cyanlabs/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
 <!ENTITY pkgURL    "&gitURL;/pkg">
 <!ENTITY plgPATH   "/boot/config/plugins/&name;">
