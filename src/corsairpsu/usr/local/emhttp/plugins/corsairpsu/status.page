@@ -3,23 +3,23 @@ Icon="ups"
 ---
 <style type="text/css">
 <?php
-	$corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
-	if ($corsairpsu_cfg["TYPE"] == "cpsumoncli") {
-		echo '.corsair-uptime-rm { display:none; }';
-		echo '.corsair-temp-rm { display:none; }';
-	} else {	
-		echo '.corsair-uptime-rm td { padding-bottom: 20px !important;}';
-		echo '.corsair-efficiency-ax { display:none; }';
-		echo '.corsair-temp-ax { display:none; }';
-	}
+    $corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
+    if ($corsairpsu_cfg["TYPE"] == "cpsumoncli") {
+        echo '.corsair-uptime-rm { display:none; }';
+        echo '.corsair-temp-rm { display:none; }';
+    } else {    
+        echo '.corsair-uptime-rm td { padding-bottom: 20px !important;}';
+        echo '.corsair-efficiency-ax { display:none; }';
+        echo '.corsair-temp-ax { display:none; }';
+    }
 ?>
-	#dash_corsairpsu_settings i, #dash_corsairpsu_toggle {margin-top:0px;}	
-	.dash_corsairpsu_header {padding-top: 20px}	
-	.dash_corsairpsu_section {
-		line-height:1.4em !important;
-		margin-left:-4px !important;
-	}
-	.dash_corsairpsu_table_header {text-decoration:underline;}
+    #dash_corsairpsu_settings i, #dash_corsairpsu_toggle {margin-top:0px;}  
+    .dash_corsairpsu_header {padding-top: 20px} 
+    .dash_corsairpsu_section {
+        line-height:1.4em !important;
+        margin-left:-4px !important;
+    }
+    .dash_corsairpsu_table_header {text-decoration:underline;}
 </style>
 <table id="db-box1" class="dash_corsairpsu dashboard box1" style="display:none">
     <thead sort="965" class="sortable">
@@ -35,8 +35,8 @@ Icon="ups"
                     <br>
                 </div>
                 <i class="fa fa-fw chevron mt0" id="dash_corsairpsu_toggle" onclick="toggleChevron('dash_corsairpsu_toggle',0)"></i>
-				<a href="/Settings/CorsairPSUSettings" id="dash_corsairpsu_settings" title="Go to Corsair PSU settings"><i class="fa fa-fw fa-cog chevron mt0"></i></a>
-				
+                <a href="/Settings/CorsairPSUSettings" id="dash_corsairpsu_settings" title="Go to Corsair PSU settings"><i class="fa fa-fw fa-cog chevron mt0"></i></a>
+                
             </td>
             <td></td>
         </tr>
@@ -64,7 +64,7 @@ Icon="ups"
             <td><span class="corsair-fan_rpm"></span> RPM</td>
             <td></td>
         </tr>
-		<tr class="corsair-temp-ax">
+        <tr class="corsair-temp-ax">
             <td></td>
             <td>Temperature / Fan</td>
             <td><span class="corsair-temp1"></span> °c</td>
@@ -78,7 +78,7 @@ Icon="ups"
             <td><span class="corsair-poweredon"></span> Total</td>
             <td></td>
         </tr>
-		<tr class="corsair-efficiency-ax">
+        <tr class="corsair-efficiency-ax">
             <td></td>
             <td>Efficiency</td>
             <td colspan="2"><span class="corsair-efficiency"></span>%</td>
@@ -86,13 +86,12 @@ Icon="ups"
         </tr>
     </tbody>
 </table>
-
 <script>
 const corsairpsu_status = () => {
  $.getJSON("/plugins/corsairpsu/status.php", (data) => {
   if(data) {
-	$.each(data, function (key, data) {
-		$(".corsair-"+key).html(data);
+    $.each(data, function (key, data) {
+        $(".corsair-"+key).html(data);
     })
   }
 <?if ($update):?>
