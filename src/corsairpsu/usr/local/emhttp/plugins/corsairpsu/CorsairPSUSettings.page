@@ -3,10 +3,13 @@ Icon="corsairpsu.png"
 Title="Corsair PSU"
 ---
 <?php
-$corsairpsu_cfg 	= parse_plugin_cfg("corsairpsu",true);
-$corsairpsu_type 	= isset($corsairpsu_cfg['TYPE']) ? $corsairpsu_cfg['TYPE'] : "corsairmi";
-$corsairpsu_tty 	= isset($corsairpsu_cfg['TTY']) ? $corsairpsu_cfg['TTY'] : "/dev/ttyUSB0";
+$corsairpsu_cfg 			= parse_plugin_cfg("corsairpsu",true);
+$corsairpsu_type			= isset($corsairpsu_cfg['TYPE']) ? $corsairpsu_cfg['TYPE'] : "corsairmi";
+$corsairpsu_tty				= isset($corsairpsu_cfg['TTY']) ? $corsairpsu_cfg['TTY'] : "/dev/ttyUSB0";
+$corsairpsu_uirefresh 		= isset($corsairpsu_cfg['UIREFRESH']) ? $corsairpsu_cfg['UIREFRESH'] : "/dev/ttyUSB0";
+$corsairpsu_uirefreshint 	= isset($corsairpsu_cfg['UIREFRESHINT']) ? $corsairpsu_cfg['UIREFRESHINT'] : "2000";
 ?>
+
 <b><font style='color:cyan;'>Corsair PSU Statistics</font></b>
 <form markdown="1" method="POST" action="/update.php" target="progressFrame">
 <input type="hidden" name="#file" value="corsairpsu/corsairpsu.cfg" />
@@ -23,11 +26,16 @@ Serial Device (Only needed for AXi PSU's):
 > Please note that AXi PSU's use a different method to communicate and therefore some additional configuration may be required. <br />
 > Please visit <a href="https://forums.unraid.net/topic/86715-corsair-psu-statistics-inteligent-psus-fma965s-fork/">https://forums.unraid.net/topic/86715-corsair-psu-statistics-inteligent-psus-fma965s-fork/</a> for further information.
 
+UI Automatic Refresh / Interval (Milliseconds):
+: <select id="UIREFRESH" name="UIREFRESH" size="1">
+  <?=mk_option($corsairpsu_uirefresh, "0", "No");?>
+  <?=mk_option($corsairpsu_uirefresh, "1", "Yes");?>
+  </select>
+  <input type="text" name="UIREFRESHINT" class="narrow" maxlength="5" value="<?=$corsairpsu_uirefreshint;?>" placeholder="1000">
 
  <input id="DEFAULT" class="stopped" type="submit" value="Default" onClick="resetDATA(this.form)">
 : <input id="btnApply" type="submit" value="Apply"><input type="button" value="Done" onClick="done()">
 </form>
-
 
 <script type="text/javascript">
 function resetDATA(form) {
