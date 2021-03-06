@@ -36,7 +36,6 @@ Icon="ups"
                 </div>
                 <i class="fa fa-fw chevron mt0" id="dash_corsairpsu_toggle" onclick="toggleChevron('dash_corsairpsu_toggle',0)"></i>
                 <a href="/Settings/CorsairPSUSettings" id="dash_corsairpsu_settings" title="Go to Corsair PSU settings"><i class="fa fa-fw fa-cog chevron mt0"></i></a>
-                
             </td>
             <td></td>
         </tr>
@@ -88,18 +87,18 @@ Icon="ups"
 </table>
 <script>
 const corsairpsu_status = () => {
- $.getJSON("/plugins/corsairpsu/status.php", (data) => {
-  if(data) {
-    $.each(data, function (key, data) {
-        $(".corsair-"+key).html(data);
-    })
-  }
-<?if ($update):?>
-  setTimeout(corsairpsu_status, <?=max(abs($display["refresh"]),2000)?>);
-<?endif;?>
- });
+    $.getJSON("/plugins/corsairpsu/status.php", (data) => {
+        if (data) {
+         $.each(data, function (key, data) {
+             $(".corsair-" + key).html(data);
+         })
+        }
+    });
 };
 $(corsairpsu_status);
+if (<?=$corsairpsu_cfg['UIREFRESH'];?>) {
+    setInterval(corsairpsu_status, <?=max(abs($display['refresh']), $corsairpsu_cfg['UIREFRESHINT']);?>);
+}
 
 $(function() {
   // append data from the table into the correct one
