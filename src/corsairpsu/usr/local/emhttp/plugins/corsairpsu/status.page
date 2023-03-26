@@ -1,5 +1,5 @@
 Menu="Dashboard"
-Cond="parse_ini_file('/tmp/corsairpsu/config/corsairpsu.cfg')['DASH'] == 'enabled' && version_compare(parse_ini_file('/etc/unraid-version')['version'],'6.12.0-beta6', '<')"
+Cond="version_compare(parse_ini_file('/etc/unraid-version')['version'],'6.12.0-beta6', '<')"
 Icon="ups"
 ---
 <style type="text/css">
