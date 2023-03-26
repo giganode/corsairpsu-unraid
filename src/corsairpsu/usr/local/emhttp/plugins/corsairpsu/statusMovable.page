@@ -63,31 +63,31 @@ $mytiles[$pluginname]['column2'] =
 </div>
 <a href="/Dashboard/Settings/CorsairPSUSettings" title="(Go to Corsair PSU settings)"><i class="fa fa-fw fa-cog control"></i></a></td></tr>
         <tr><td>
-            <span class="w26 header dash_corsairpsu_table_header">12V Utilization</span>
-            <span class="w26 header dash_corsairpsu_table_header">5V Utilization</span>
-            <span class="w26 header dash_corsairpsu_table_header">3V Utilization</span> 
+            <span class="w36 header dash_corsairpsu_table_header">12V Utilization</span>
+            <span class="w36 header dash_corsairpsu_table_header">5V Utilization</span>
+            <span class="w36 header dash_corsairpsu_table_header">3V Utilization</span> 
         </td></tr>
         <tr><td colspan="3">
-            <span class="w26"><span class="corsair-12v_load"></span>% (<span class="corsair-12v_watts"></span>W)</span> 
-            <span class="w26"><span class ="corsair-5v_load"></span>% (<span class="corsair-5v_watts"></span>W)</span>
-            <span class="w26"><span class ="corsair-3v_load"></span>% (<span class="corsair-3v_watts"></span>W)</span>
+            <span class="w36"><span class="corsair-12v_load"></span>% (<span class="corsair-12v_watts"></span>W)</span> 
+            <span class="w36"><span class ="corsair-5v_load"></span>% (<span class="corsair-5v_watts"></span>W)</span>
+            <span class="w36"><span class ="corsair-3v_load"></span>% (<span class="corsair-3v_watts"></span>W)</span>
             </td></tr>
         <tr><td><br></td></tr>
-        <tr class="corsair-temp-rm"><td><span class="w26">Temperature / Fan</span>
-            <span class="w26"><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °C</span>
-            <span class="w26"><span class="corsair-fan_rpm"></span> RPM</span></span>
+        <tr class="corsair-temp-rm"><td><span class="w36">Temperature / Fan</span>
+            <span class="w36"><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °C</span>
+            <span class="w36"><span class="corsair-fan_rpm"></span> RPM</span></span>
             </td></tr>
-        <tr class="corsair-temp-ax"><td><span class="w26">Temperature / Fan</span>
-            <span class="w26"><span class=" corsair-temp1"></span> °C</span>
-            <span class="w26"><span class="corsair-fan_rpm"></span> RPM</span>
+        <tr class="corsair-temp-ax"><td><span class="w36">Temperature / Fan</span>
+            <span class="w36"><span class=" corsair-temp1"></span> °C</span>
+            <span class="w36"><span class="corsair-fan_rpm"></span> RPM</span>
             </td></tr>
-        <tr class="corsair-uptime-rm"><td><span class="w26">Uptime</span>
-            <span class="w26"><span class="corsair-uptime"></span></span>
-            <span class="w26"><span class="corsair-poweredon"></span> Total</span>
+        <tr class="corsair-uptime-rm"><td><span class="w36">Uptime</span>
+            <span class="w36"><span class="corsair-uptime"></span></span>
+            <span class="w36"><span class="corsair-poweredon"></span> Total</span>
             </td></tr>
-        <tr class="corsair-efficiency-ax"><td><span class="w26">Efficiency / Supply</span>
-            <span class="w26"><span class="corsair-efficiency"></span>% (<span class="corsair-input_power"></span>W)</span>
-            <span class="w26"><span class="corsair-input_voltage"></span>V</span>
+        <tr class="corsair-efficiency-ax"><td><span class="w36">Efficiency / Supply</span>
+            <span class="w36"><span class="corsair-efficiency"></span>% (<span class="corsair-input_power"></span>W)</span>
+            <span class="w36"><span class="corsair-input_voltage"></span>V</span>
             </td></tr>
 </tbody>
 EOT;
