@@ -11,7 +11,7 @@
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY packages	"/boot/config/plugins/&name;/pkg">
-<!ENTITY md5		"78977784587021418ad2ae0ec7fb47fc">
+<!ENTITY md5		"a462e0b8cf6981e61dc7acbdf9783263">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;">
  <FILE Name="&plgPATH;/&plgNAME;.txz" Min="6.4" Run="upgradepkg --install-new">
