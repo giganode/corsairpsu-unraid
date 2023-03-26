@@ -1,25 +1,42 @@
-Menu="Dashboard"
+Menu="Dashboard:0"
+Cond="parse_ini_file('/tmp/corsairpsu/config/corsairpsu.cfg')['DASH'] == 'enabled' && version_compare(parse_ini_file('/etc/unraid-version')['version'],'6.12.0-beta6', '<')"
 Icon="ups"
 ---
-<style type="text/css">
-<?php
-    $corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
-    if ($corsairpsu_cfg["TYPE"] == "cpsumoncli") {
-        echo '.corsair-uptime-rm { display:none; }';
-        echo '.corsair-temp-rm { display:none; }';
-    } else {    
-        echo '.corsair-uptime-rm td { padding-bottom: 20px !important;}';
-        echo '.corsair-temp-ax { display:none; }';
-    }
+
+<?PHP
+/*
+  Create a .page file based on this example file and store the file in your plugin directory
+  Make sure this file has a unique name not used by the GUI or other plugins
+
+  This is an example configuration which is used to add custom tiles to the dashboard
+  Placement of one or more custom tiles is done under column1, column2 or column3
+  A column can have as many new custom tiles as needed, each custom tile is a <tbody> element
+  Each tile must have these two properties set:
+
+  "_(description)_"    - this is the (translated) description shown in the Content Manager window
+  "_(Tile tile)_"      - this is the (translated) title of the tile shown in bold on the screen
+
+  The content of the tile can be any text as required by your plugin, this content is placed inside the <td> element
+  A number of predefined spans are available to make fields of certain widths and maybe used to follow the GUI alignment
+  These are:
+  <span class="w18">
+  <span class="w26">
+  <span class="w36">
+  <span class="w44">
+  <span class="w72">
+*/
+
+$pluginname = "corsairpsu"; // substitute this entry with the name of your plugin
+
+$mytiles[$pluginname]['column2'] =
+<<<EOT
+<tbody id="tblcorsairpsu" title="_(Corsair PSU)_">
+<tr><td>_(Corsair PSU)_<a href="/Dashboard/Settings/CorsairPSUSettings" title="_(Go to Corsair PSU settings)_"><i class="fa fa-fw fa-cog control"></i></a></td></tr>
+<tr class="header"><td><span class="w18">_(Port)_</span><span class="w44">_(Name)_</span><span class="w18">_(State)_</span><span class="w18">_(VM/Remote Host)_</span></td></tr>
+</tbody>
+EOT;
 ?>
-    #dash_corsairpsu_settings i, #dash_corsairpsu_toggle {margin-top:0px;}  
-    .dash_corsairpsu_header {padding-top: 20px} 
-    .dash_corsairpsu_section {
-        line-height:1.4em !important;
-        margin-left:-4px !important;
-    }
-    .dash_corsairpsu_table_header {text-decoration:underline;}
-</style>
+
 <table id="db-box1" class="dash_corsairpsu dashboard box1" style="display:none">
     <thead sort="965" class="sortable">
         <tr>
