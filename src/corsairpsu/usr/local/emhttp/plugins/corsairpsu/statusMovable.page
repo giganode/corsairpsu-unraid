@@ -54,9 +54,9 @@ $pluginname = "corsairpsu"; // substitute this entry with the name of your plugi
 
 $mytiles[$pluginname]['column2'] =
 <<<EOT
-<tbody id="tblcorsairpsu" title="Power Supply">
+<tbody id="tblcorsairpsu" title="_(Corsair PSU)_">
 <tr><td><i class='icon-ups f32'></i>
-<div class='section'>(Corsair PSU)<br>
+<div class='section'>Power Supply<br>
 <span class="corsair-vendor"></span> <span class="corsair-product"></span> (<span class="corsair-capacity"></span>W)
 <span id="util">Utilization: <span class="corsair-load"></span>% (<span class="corsair-watts"></span>W)</span>
 </span>
