@@ -30,9 +30,14 @@ $pluginname = "corsairpsu"; // substitute this entry with the name of your plugi
 
 $mytiles[$pluginname]['column2'] =
 <<<EOT
-<tbody id="tblcorsairpsu" title="_(Corsair PSU)_">
-<tr><td>_(Corsair PSU)_<a href="/Dashboard/Settings/CorsairPSUSettings" title="_(Go to Corsair PSU settings)_"><i class="fa fa-fw fa-cog control"></i></a></td></tr>
-<tr class="header"><td><span class="w18">_(Port)_</span><span class="w44">_(Name)_</span><span class="w18">_(State)_</span><span class="w18">_(VM/Remote Host)_</span></td></tr>
+<tbody id="tblcorsairpsu" title="(Corsair PSU)">
+<tr><td><i class='icon-ups f32'></i>
+<div class='section'>(Corsair PSU)<br>
+<span class="corsair-vendor"></span> <span class="corsair-product"></span> (<span class="corsair-capacity"></span>W)
+<span id="util">Utilization: <span class="corsair-load"></span>% (<span class="corsair-watts"></span>W)</span>
+</span>
+</div>
+<a href="/Dashboard/Settings/CorsairPSUSettings" title="(Go to Corsair PSU settings)"><i class="fa fa-fw fa-cog control"></i></a></td></tr>
 </tbody>
 EOT;
 ?>
