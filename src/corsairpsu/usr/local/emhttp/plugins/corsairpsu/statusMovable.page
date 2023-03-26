@@ -39,9 +39,9 @@ $mytiles[$pluginname]['column2'] =
 </div>
 <a href="/Dashboard/Settings/CorsairPSUSettings" title="_(Go to Corsair PSU settings)_"><i class="fa fa-fw fa-cog control"></i></a></td></tr>
    	<tr><td>
-            <span class="w26 header dash_corsairpsu_table_header">12v Utilization</span>
-            <span class="w26 header dash_corsairpsu_table_header">5v Utilization</span>
-            <span class="w26 header dash_corsairpsu_table_header">3v Utilization</span> 
+            <span class="w26 header dash_corsairpsu_table_header">12V Utilization</span>
+            <span class="w26 header dash_corsairpsu_table_header">5V Utilization</span>
+            <span class="w26 header dash_corsairpsu_table_header">3V Utilization</span> 
         </td></tr>
         <tr><td>
             <span class="w26 corsair-12v_load"></span>% (<span class="corsair-12v_watts"></span>W) 
@@ -51,12 +51,12 @@ $mytiles[$pluginname]['column2'] =
         <tr><td></td></tr>
         <tr class="corsair-temp-rm"><td>
             Temperature / Fan
-            <span class="w26 corsair-temp1"></span> / <span class="corsair-temp2"></span> °c
+            <span class="w26 corsair-temp1"></span> / <span class="corsair-temp2"></span> °C
             <span class="w26 corsair-fan_rpm"></span> RPM
             </td></tr>
         <tr class="corsair-temp-ax"><td>
             Temperature / Fan
-            <span class="w26 corsair-temp1"></span> °c
+            <span class="w26 corsair-temp1"></span> °C
             <span class="w26 corsair-fan_rpm"></span> RPM
             </td></tr>
         <tr class="corsair-uptime-rm"><td>
