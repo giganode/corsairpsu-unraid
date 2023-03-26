@@ -72,3 +72,14 @@ $mytiles[$pluginname]['column2'] =
 </tbody>
 EOT;
 ?>
+
+$(function() {
+  // append data from the table into the correct one
+  $("#db-box1").append($(".dash_corsairpsu").html());
+
+  // reload toggle to get the correct state
+  toggleView('dash_corsairpsu_toggle',true);
+
+  // reload sorting to get the stored data (cookie)
+  sortTable($('#db-box1'),$.cookie('db-box1'));
+});
