@@ -30,106 +30,45 @@ $pluginname = "corsairpsu"; // substitute this entry with the name of your plugi
 
 $mytiles[$pluginname]['column2'] =
 <<<EOT
-<tbody id="tblcorsairpsu" title="(Corsair PSU)">
+<tbody id="tblcorsairpsu" title="_(Corsair PSU)_">
 <tr><td><i class='icon-ups f32'></i>
-<div class='section'>(Corsair PSU)<br>
+<div class='section'>_(Corsair PSU)_<br>
 <span class="corsair-vendor"></span> <span class="corsair-product"></span> (<span class="corsair-capacity"></span>W)
 <span id="util">Utilization: <span class="corsair-load"></span>% (<span class="corsair-watts"></span>W)</span>
 </span>
 </div>
-<a href="/Dashboard/Settings/CorsairPSUSettings" title="(Go to Corsair PSU settings)"><i class="fa fa-fw fa-cog control"></i></a></td></tr>
+<a href="/Dashboard/Settings/CorsairPSUSettings" title="_(Go to Corsair PSU settings)_"><i class="fa fa-fw fa-cog control"></i></a></td></tr>
+   	<tr><td>
+            <span class="w26 header dash_corsairpsu_table_header">12v Utilization</span>
+            <span class="w26 header dash_corsairpsu_table_header">5v Utilization</span>
+            <span class="w26 header dash_corsairpsu_table_header">3v Utilization</span> 
+        </td></tr>
+        <tr><td>
+            <span class="w26 corsair-12v_load"></span>% (<span class="corsair-12v_watts"></span>W) 
+            <span class="w26 corsair-5v_load"></span>% (<span class="corsair-5v_watts"></span>W)
+            <span class="w26 corsair-3v_load"></span>% (<span class="corsair-3v_watts"></span>W)
+            </td></tr>
+        <tr><td></td></tr>
+        <tr class="corsair-temp-rm"><td>
+            Temperature / Fan
+            <span class="w26 corsair-temp1"></span> / <span class="corsair-temp2"></span> °c
+            <span class="w26 corsair-fan_rpm"></span> RPM
+            </td></tr>
+        <tr class="corsair-temp-ax"><td>
+            Temperature / Fan
+            <span class="w26 corsair-temp1"></span> °c
+            <span class="w26 corsair-fan_rpm"></span> RPM
+            </td></tr>
+        <tr class="corsair-uptime-rm"><td>
+            Uptime
+            <span class="w26 corsair-uptime"></span>
+            <span class="w26 corsair-poweredon"></span> Total
+            </td></tr>
+        <tr class="corsair-efficiency-ax"><td>
+            Efficiency / Supply
+            <span class="w26 corsair-efficiency"></span>% (<span class="corsair-input_power"></span>W)</span>
+            <span class="w26 corsair-input_voltage"></span>V
+            </td></tr>
 </tbody>
 EOT;
 ?>
-
-<table id="db-box1" class="dash_corsairpsu dashboard box1" style="display:none">
-    <thead sort="965" class="sortable">
-        <tr>
-            <td></td>
-            <td class="next dash_corsairpsu_header" colspan="3">
-                <i class="icon-ups"></i>
-                <div class="section dash_corsairpsu_section">Power Supply
-                    <br>
-                    <span class="corsair-vendor"></span> <span class="corsair-product"></span> (<span class="corsair-capacity"></span>W)
-                    <span id="util">Utilization: <span class="corsair-load"></span>% (<span class="corsair-watts"></span>W)</span>
-                    </span>
-                    <br>
-                </div>
-                <i class="fa fa-fw chevron mt0" id="dash_corsairpsu_toggle" onclick="toggleChevron('dash_corsairpsu_toggle',0)"></i>
-                <a href="/Settings/CorsairPSUSettings" id="dash_corsairpsu_settings" title="Go to Corsair PSU settings"><i class="fa fa-fw fa-cog chevron mt0"></i></a>
-            </td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody class="dash_corsairpsu_toggle sortable" sort="965">
-        <tr>
-            <td></td>
-            <td><span class="header dash_corsairpsu_table_header">12v Utilization</span></td>
-            <td><span class="header dash_corsairpsu_table_header">5v Utilization</span></td>
-            <td><span class="header dash_corsairpsu_table_header">3v Utilization</span></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><span class="corsair-12v_load"></span>% (<span class="corsair-12v_watts"></span>W) </td>
-            <td><span class="corsair-5v_load"></span>% (<span class="corsair-5v_watts"></span>W)</td>
-            <td><span class="corsair-3v_load"></span>% (<span class="corsair-3v_watts"></span>W)</td>
-            <td></td>
-        </tr>
-        <tr><td colspan="5"></td></tr><tr><td colspan="5"></td></tr>
-        <tr class="corsair-temp-rm">
-            <td></td>
-            <td>Temperature / Fan</td>
-            <td><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °c</td>
-            <td><span class="corsair-fan_rpm"></span> RPM</td>
-            <td></td>
-        </tr>
-        <tr class="corsair-temp-ax">
-            <td></td>
-            <td>Temperature / Fan</td>
-            <td><span class="corsair-temp1"></span> °c</td>
-            <td><span class="corsair-fan_rpm"></span> RPM</td>
-            <td></td>
-        </tr>
-        <tr class="corsair-uptime-rm">
-            <td></td>
-            <td>Uptime</td>
-            <td><span class="corsair-uptime"></span></td>
-            <td><span class="corsair-poweredon"></span> Total</td>
-            <td></td>
-        </tr>
-        <tr class="corsair-efficiency-ax">
-            <td></td>
-            <td>Efficiency / Supply</td>
-            <td><span class="corsair-efficiency"></span>% (<span class="corsair-input_power"></span>W)</span></td>
-            <td><span class="corsair-input_voltage"></span>V</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
-<script>
-const corsairpsu_status = () => {
-    $.getJSON("/plugins/corsairpsu/status.php", (data) => {
-        if (data) {
-         $.each(data, function (key, data) {
-             $(".corsair-" + key).html(data);
-         })
-        }
-    });
-};
-$(corsairpsu_status);
-if (<?=$corsairpsu_cfg['UIREFRESH'];?>) {
-    setInterval(corsairpsu_status, <?=max(abs($display['refresh']), $corsairpsu_cfg['UIREFRESHINT']);?>);
-}
-
-$(function() {
-  // append data from the table into the correct one
-  $("#db-box1").append($(".dash_corsairpsu").html());
-  
-  // reload toggle to get the correct state
-  toggleView('dash_corsairpsu_toggle',true);
-  
-  // reload sorting to get the stored data (cookie)
-  sortTable($('#db-box1'),$.cookie('db-box1'));
-});
-</script>
