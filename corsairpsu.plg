@@ -20,12 +20,12 @@
  ##corsairpsu
  ###&version;
     
-    - Repo forked from CyanLabs/corsairpsu-unraid. Made the necessary changes for UnRAID v.6.12.0-beta7 while maintaining backwards compatibility.
+    - Repo forked from CyanLabs/corsairpsu-unraid. Made the necessary changes for UnRAID v.6.12.0-beta6 while maintaining backwards compatibility.
  
  </CHANGES>
 
   
- <FILE Name="&plgPATH;/&plgNAME;.txz" Min="6.4" Run="upgradepkg --install-new">
+ <FILE Name="&plgPATH;/&plgNAME;.txz" Min="6.12.0-beta6" Run="upgradepkg --install-new">
   <URL>&pkgURL;/&plgNAME;.txz</URL>
  </FILE>
  <FILE Run="/bin/bash" Method="remove">
