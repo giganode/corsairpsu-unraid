@@ -25,8 +25,9 @@
  </CHANGES>
 
   
- <FILE Name="&plgPATH;/&plgNAME;.txz" Min="6.4" Run="upgradepkg --install-new">
+ <FILE Name="&plgPATH;/&plgNAME;.txz" Run="upgradepkg --install-new">
   <URL>&pkgURL;/&plgNAME;.txz</URL>
+  <MD5>&md5;</MD5>
  </FILE>
  <FILE Run="/bin/bash" Method="remove">
   <INLINE>
