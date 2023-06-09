@@ -58,6 +58,10 @@ if ($settings["TYPE"] == "corsairmi") {
 			$fpowin115 = 0.00009486097544171090 * $output_power * $output_power + 1.0170509865269720 * $output_power + 11.619826520447452;
 			$fpowin230 = 0.00009649987544008507 * $output_power * $output_power + 1.0018241767296636 * $output_power + 12.759957859756842;
 			break;
+		case "CORSAIR HX1000i PSU":
+			$fpowin115 = 0.00009486097544171090 * $output_power * $output_power + 1.0170509865269720 * $output_power + 11.619826520447452;
+			$fpowin230 = 0.00009649987544008507 * $output_power * $output_power + 1.0018241767296636 * $output_power + 12.759957859756842;
+			break;
 		case "HX1200i":
 			$fpowin115 = 0.00006244705156199815 * $output_power * $output_power + 1.0234738310580973 * $output_power + 15.293509559389241;
 			$fpowin230 = 0.00005941317979435096 * $output_power * $output_power + 1.0023670927127724 * $output_power + 15.886126793547152;
