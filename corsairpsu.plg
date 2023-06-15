@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "giganode">
-<!ENTITY version   "2023.03.26e">
+<!ENTITY version   "2023.06.09">
 <!ENTITY launch    "Settings/CorsairPSUSettings">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/giganode/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
@@ -10,8 +10,8 @@
 <!ENTITY plgPATH   "/boot/config/plugins/&name;">
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
-<!ENTITY packages	"/boot/config/plugins/&name;/pkg">
-<!ENTITY md5		"0f121e6a7625404e6048fd0fbafa1c82">
+<!ENTITY packages	 "/boot/config/plugins/&name;/pkg">
+<!ENTITY md5		     "79ec409ebee891fc1ee2c660531ac283">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
@@ -20,8 +20,12 @@
  ##corsairpsu
  ###&version;
     
-    - Repo forked from CyanLabs/corsairpsu-unraid. Made the necessary changes for UnRAID v.6.12.0-beta7 while maintaining backwards compatibility.
+    - Added support for new HX1000i PSU with USB-C.
  
+ ###2023.03.26e
+  
+    - Repo forked from CyanLabs/corsairpsu-unraid. Made the necessary changes for UnRAID v.6.12.0-beta7 while maintaining backwards compatibility.
+  
  </CHANGES>
 
   
