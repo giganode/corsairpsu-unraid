@@ -1,4 +1,5 @@
 Menu="Dashboard"
+Cond="version_compare(parse_ini_file('/etc/unraid-version')['version'],'6.12.0-beta6', '<')"
 Icon="ups"
 ---
 <style type="text/css">
