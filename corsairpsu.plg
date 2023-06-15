@@ -11,7 +11,7 @@
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY packages	"/boot/config/plugins/&name;/pkg">
-<!ENTITY md5		"fcfe9f9bc9ade8e614831b47ebe7c468">
+<!ENTITY md5		"76af90db5b56ba45afb23b51de51c322">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
