@@ -1,5 +1,4 @@
 Menu="Dashboard"
-Cond="version_compare(parse_ini_file('/etc/unraid-version')['version'],'6.12.0-beta6', '<')"
 Icon="ups"
 ---
 <style type="text/css">
@@ -29,11 +28,7 @@ Icon="ups"
                 <i class="icon-ups"></i>
                 <div class="section dash_corsairpsu_section">Power Supply
                     <br>
-                    if ("corsair-vendor" == "corsair-product") {
-                    <span class="corsair-vendor"></span> (<span class="corsair-capacity"></span>W);
-                    } else {
                     <span class="corsair-vendor"></span> <span class="corsair-product"></span> (<span class="corsair-capacity"></span>W)
-                    }
                     <span id="util">Utilization: <span class="corsair-load"></span>% (<span class="corsair-watts"></span>W)</span>
                     </span>
                     <br>
