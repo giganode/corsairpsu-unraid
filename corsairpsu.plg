@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "giganode">
-<!ENTITY version   "2023.08.06">
+<!ENTITY version   "2023.06.15">
 <!ENTITY launch    "Settings/CorsairPSUSettings">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/giganode/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
@@ -17,15 +17,15 @@
  
  <CHANGES>
   
- ###2023.08.06
+ ##2023.08.06
 
     - Fixed cpsumoncli, because it was not executable.
 
- ###2023.06.15
+ ##2023.06.15
   
     - Added support for new HX1000i PSU with USB-C.
   
- ###2023.03.26e
+ ##2023.03.26e
     
     - Repo forked from CyanLabs/corsairpsu-unraid. 
       Made the necessary changes for UnRAID v.6.12.0-beta7 while maintaining backwards compatibility.
