@@ -10,8 +10,8 @@
 <!ENTITY plgPATH   "/boot/config/plugins/&name;">
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
-<!ENTITY packages	"/boot/config/plugins/&name;/pkg">
-<!ENTITY md5		"34e836501ecda05c3798d3f7e131f1c7">
+<!ENTITY packages  "/boot/config/plugins/&name;/pkg">
+<!ENTITY md5       "34e836501ecda05c3798d3f7e131f1c7">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
