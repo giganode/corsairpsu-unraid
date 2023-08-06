@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "giganode">
-<!ENTITY version   "2023.08.06">
+<!ENTITY version   "2023.06.15">
 <!ENTITY launch    "Settings/CorsairPSUSettings">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/giganode/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
