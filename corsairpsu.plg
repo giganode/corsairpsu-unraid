@@ -16,10 +16,8 @@
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
  <CHANGES>
-
- ##corsairpsu
   
- ###&version;
+ ###2023.08.06
 
     - Fixed cpsumoncli, because it was not executable.
 
