@@ -35,7 +35,7 @@
 
  <FILE Run="/bin/bash">
 <INLINE>
-chmod #x /usr/local/bin/cpsumoncli
+chmod +x /usr/local/bin/cpsumoncli
 </INLINE>
 
 </FILE>
