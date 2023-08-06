@@ -33,13 +33,15 @@
  
  </CHANGES>
 
-  
+ <FILE Run="/bin/bash">
+<INLINE>
+chmod #x /usr/local/bin/cpsumoncli
+</INLINE>
+
+</FILE>
  <FILE Name="&plgPATH;/&plgNAME;.txz" Run="upgradepkg --install-new">
   <URL>&pkgURL;/&plgNAME;.txz</URL>
   <MD5>&md5;</MD5>
-  <INLINE>
-   chmod +x /usr/local/bin/cpsumoncli
-  </INLINE>
  </FILE>
  <FILE Run="/bin/bash" Method="remove">
   <INLINE>
