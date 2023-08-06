@@ -21,7 +21,7 @@
   
  ###&version;
 
-    - Restructured locations, as cpsumoncli was not executable.
+    - Fixed cpsumoncli, because it was not executable.
 
  ###2023.06.15
   
