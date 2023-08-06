@@ -41,10 +41,10 @@
   <MD5>&md5;</MD5>
  </FILE>
 
- <FILE Run="/bin/bash">
-<INLINE>
-chmod +x /usr/local/bin/cpsumoncli
-</INLINE>
+# <FILE Run="/bin/bash">
+#<INLINE>
+#chmod +x /usr/local/bin/cpsumoncli
+#</INLINE>
 
  <FILE Run="/bin/bash" Method="remove">
   <INLINE>
