@@ -23,7 +23,7 @@
 
     - Restructured locations, as cpsumoncli was not executable.
 
-###2023.06.15;
+ ###2023.06.15;
   
     - Added support for new HX1000i PSU with USB-C.
   
