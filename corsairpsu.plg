@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "giganode">
-<!ENTITY version   "2023.06.15">
+<!ENTITY version   "2023.08.06">
 <!ENTITY launch    "Settings/CorsairPSUSettings">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/giganode/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
@@ -11,7 +11,7 @@
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY packages  "/boot/config/plugins/&name;/pkg">
-<!ENTITY md5       "6aade5a03eb5b0cccafa2c93a3463dfb">
+<!ENTITY md5       "34e836501ecda05c3798d3f7e131f1c7">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
