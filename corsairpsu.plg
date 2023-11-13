@@ -40,16 +40,14 @@
 <INLINE>
 
 if [ -f /usr/local/bin/cpsumoncli ]; then
-    # Überprüfen, ob die Datei nicht ausführbar ist
     if [ ! -x /usr/local/bin/cpsumoncli ]; then
-        # Datei ausführbar machen
         chmod +x /usr/local/bin/cpsumoncli
-        echo "Die Datei cpsumoncli wurde ausführbar gemacht."
+        echo "cpsumoncli is now executable."
     else
-        echo "Die Datei cpsumoncli ist bereits ausführbar."
+        echo "cpsumoncli already was executable."
     fi
 else
-    echo "Die Datei cpsumoncli existiert nicht."
+    echo "cpsumoncli doesn't exist."
 fi
 
 </INLINE>
