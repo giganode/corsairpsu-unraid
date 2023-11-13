@@ -35,6 +35,26 @@
  <FILE Name="&plgPATH;/&plgNAME;.txz" Run="upgradepkg --install-new">
   <URL>&pkgURL;/&plgNAME;.txz</URL>
  </FILE>
+
+<FILE Run="/bin/bash">
+<INLINE>
+
+if [ -f /usr/local/bin/cpsumoncli ]; then
+    # Überprüfen, ob die Datei nicht ausführbar ist
+    if [ ! -x /usr/local/bin/cpsumoncli ]; then
+        # Datei ausführbar machen
+        chmod +x /usr/local/bin/cpsumoncli
+        echo "Die Datei cpsumoncli wurde ausführbar gemacht."
+    else
+        echo "Die Datei cpsumoncli ist bereits ausführbar."
+    fi
+else
+    echo "Die Datei cpsumoncli existiert nicht."
+fi
+
+</INLINE>
+</FILE>
+
  <FILE Run="/bin/bash" Method="remove">
   <INLINE>
    echo "Removing &name;..."
