@@ -17,6 +17,10 @@
  
  <CHANGES>
 
+ ##2025.01.05
+
+    - Added support for HX1200i (with USB-C).
+
  ##2023.11.13
 
     - Added support for HX1500i.
