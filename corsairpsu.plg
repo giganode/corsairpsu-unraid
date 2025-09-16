@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "giganode">
-<!ENTITY version   "2025.01.05">
+<!ENTITY version   "2025.09.16">
 <!ENTITY launch    "Settings/CorsairPSUSettings">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/giganode/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
@@ -11,11 +11,15 @@
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY packages  "/boot/config/plugins/&name;/pkg">
-<!ENTITY md5       "d03a5e9ca517995b0c70306f1957502f">
+<!ENTITY md5       "fcd21c749b02024349e6e9c4f90f8a80">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
  <CHANGES>
+
+ ##2025.01.05
+
+    - Added support for new revision HX1200i (with USB-C).
 
  ##2025.01.05
 
