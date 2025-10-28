@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "giganode">
-<!ENTITY version   "2025.09.16">
+<!ENTITY version   "2025.10.28">
 <!ENTITY launch    "Settings/CorsairPSUSettings">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/giganode/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
@@ -11,11 +11,15 @@
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY packages  "/boot/config/plugins/&name;/pkg">
-<!ENTITY md5       "fcd21c749b02024349e6e9c4f90f8a80">
+<!ENTITY md5       "ce4aa3ca49f58969e3bffe436945dab6">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
  <CHANGES>
+
+##2025.10.28
+
+    - Added support for new revision HX1500i.
 
  ##2025.01.05
 
