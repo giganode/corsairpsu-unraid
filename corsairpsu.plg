@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "giganode">
-<!ENTITY version   "2025.10.28">
+<!ENTITY version   "2025.11.15">
 <!ENTITY launch    "Settings/CorsairPSUSettings">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/giganode/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
@@ -11,11 +11,14 @@
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY packages  "/boot/config/plugins/&name;/pkg">
-<!ENTITY md5       "ce4aa3ca49f58969e3bffe436945dab6">
+<!ENTITY md5       "b4082df7731a830fd911df66957d9a48">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
  <CHANGES>
+##2025.11.15
+
+    - Added support for AX1600i. Necessary changes added. Thanks a lot to Bngoold.
 
 ##2025.10.28
 
@@ -75,6 +78,17 @@ if [ -f /usr/local/bin/cpsumoncli ]; then
     fi
 else
     echo "cpsumoncli doesn't exist."
+fi
+
+if [ -f /usr/local/bin/ax1600i ]; then
+    if [ ! -x /usr/local/bin/ax1600i ]; then
+        chmod +x /usr/local/bin/ax1600i
+        echo "ax1600i is now executable."
+    else
+        echo "ax1600i already was executable."
+    fi
+else
+    echo "ax1600i doesn't exist."
 fi
 
 </INLINE>
