@@ -2,10 +2,14 @@ Menu="Dashboard"
 Cond="version_compare(parse_ini_file('/etc/unraid-version')['version'],'6.12.0-beta6', '<')"
 Icon="ups"
 ---
+<!--
+Corsair PSU Statistics - AX1600i Support Patch
+Patch by bngoold for the Unraid community
+-->
 <style type="text/css">
 <?php
     $corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
-    if ($corsairpsu_cfg["TYPE"] == "cpsumoncli") {
+    if ($corsairpsu_cfg["TYPE"] == "cpsumoncli" || $corsairpsu_cfg["TYPE"] == "ax1600i") {
         echo '.corsair-uptime-rm { display:none; }';
         echo '.corsair-temp-rm { display:none; }';
     } else {    
@@ -43,45 +47,39 @@ Icon="ups"
     <tbody class="dash_corsairpsu_toggle sortable" sort="965">
         <tr>
             <td></td>
-            <td><span class="header dash_corsairpsu_table_header">12v Utilization</span></td>
-            <td><span class="header dash_corsairpsu_table_header">5v Utilization</span></td>
-            <td><span class="header dash_corsairpsu_table_header">3v Utilization</span></td>
+            <td><span class="header dash_corsairpsu_table_header">12V</span></td>
+            <td><span class="header dash_corsairpsu_table_header">5V</span></td>
+            <td><span class="header dash_corsairpsu_table_header">3.3V</span></td>
             <td></td>
         </tr>
         <tr>
             <td></td>
-            <td><span class="corsair-12v_load"></span>% (<span class="corsair-12v_watts"></span>W) </td>
-            <td><span class="corsair-5v_load"></span>% (<span class="corsair-5v_watts"></span>W)</td>
-            <td><span class="corsair-3v_load"></span>% (<span class="corsair-3v_watts"></span>W)</td>
+            <td><span class="corsair-12v_load"></span>% (<span class="corsair-12v_watts"></span>W<span class="corsair-12v_amps"></span>)</td>
+            <td><span class="corsair-5v_load"></span>% (<span class="corsair-5v_watts"></span>W<span class="corsair-5v_amps"></span>)</td>
+            <td><span class="corsair-3v_load"></span>% (<span class="corsair-3v_watts"></span>W<span class="corsair-3v_amps"></span>)</td>
             <td></td>
         </tr>
         <tr><td colspan="5"></td></tr><tr><td colspan="5"></td></tr>
         <tr class="corsair-temp-rm">
             <td></td>
             <td>Temperature / Fan</td>
-            <td><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °c</td>
+            <td><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °C</td>
             <td><span class="corsair-fan_rpm"></span> RPM</td>
             <td></td>
         </tr>
         <tr class="corsair-temp-ax">
             <td></td>
-            <td>Temperature / Fan</td>
-            <td><span class="corsair-temp1"></span> °c</td>
-            <td><span class="corsair-fan_rpm"></span> RPM</td>
+            <td>Temp1 / Temp2</td>
+            <td><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °C</td>
+            <td>Fan: <span class="corsair-fan_display"></span></td>
             <td></td>
         </tr>
-        <tr class="corsair-uptime-rm">
-            <td></td>
-            <td>Uptime</td>
-            <td><span class="corsair-uptime"></span></td>
-            <td><span class="corsair-poweredon"></span> Total</td>
-            <td></td>
-        </tr>
+
         <tr class="corsair-efficiency-ax">
             <td></td>
             <td>Efficiency / Supply</td>
-            <td><span class="corsair-efficiency"></span>% (<span class="corsair-input_power"></span>W)</span></td>
-            <td><span class="corsair-input_voltage"></span>V</td>
+            <td><span class="corsair-efficiency"></span>%</td>
+            <td><span class="corsair-input_voltage"></span>V (<span class="corsair-input_power"></span>W<span class="corsair-input_amps"></span>)</td>
             <td></td>
         </tr>
     </tbody>
@@ -92,7 +90,28 @@ const corsairpsu_status = () => {
         if (data) {
          $.each(data, function (key, data) {
              $(".corsair-" + key).html(data);
-         })
+         });
+         
+         // Format amperage displays with comma separator
+         if (data['12v_current']) {
+             $(".corsair-12v_amps").html(", " + data['12v_current'] + "A");
+         }
+         if (data['5v_current']) {
+             $(".corsair-5v_amps").html(", " + data['5v_current'] + "A");
+         }
+         if (data['3v_current']) {
+             $(".corsair-3v_amps").html(", " + data['3v_current'] + "A");
+         }
+         if (data['input_current']) {
+             $(".corsair-input_amps").html(", " + data['input_current'] + "A");
+         }
+         
+         // Display fan with percentage and consistent formatting
+         if (data['fan_rpm'] == 0) {
+             $(".corsair-fan_display").html("0% (Passive)");
+         } else {
+             $(".corsair-fan_display").html(data['fan_percentage'] + "% (" + data['fan_rpm'] + " RPM)");
+         }
         }
     });
 };
