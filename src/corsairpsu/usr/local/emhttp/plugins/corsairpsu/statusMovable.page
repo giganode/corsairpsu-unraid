@@ -2,7 +2,10 @@ Menu="Dashboard:0"
 Cond="version_compare(parse_ini_file('/etc/unraid-version')['version'],'6.12.0-beta6', '>')"
 Icon="ups"
 ---
-
+<!--
+Corsair PSU Statistics - AX1600i Support Patch
+Patch by bngoold for the Unraid community
+-->
 <?PHP
 /*
   Create a .page file based on this example file and store the file in your plugin directory
@@ -30,7 +33,7 @@ Icon="ups"
 <style type="text/css">
 <?php
     $corsairpsu_cfg = parse_plugin_cfg("corsairpsu",true);
-    if ($corsairpsu_cfg["TYPE"] == "cpsumoncli") {
+    if ($corsairpsu_cfg["TYPE"] == "cpsumoncli" || $corsairpsu_cfg["TYPE"] == "ax1600i") {
         echo '.corsair-uptime-rm { display:none; }';
         echo '.corsair-temp-rm { display:none; }';
     } else {    
@@ -77,17 +80,13 @@ $mytiles[$pluginname]['column2'] =
             <span class="w26"><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °C</span>
             <span class="w26"><span class="corsair-fan_rpm"></span> RPM</span></span>
             </td></tr>
-        <tr class="corsair-temp-ax"><td><span class="w26">Temperature / Fan</span>
-            <span class="w26"><span class=" corsair-temp1"></span> °C</span>
-            <span class="w26"><span class="corsair-fan_rpm"></span> RPM</span>
-            </td></tr>
-        <tr class="corsair-uptime-rm"><td><span class="w26">Uptime</span>
-            <span class="w26"><span class="corsair-uptime"></span></span>
-            <span class="w26"><span class="corsair-poweredon"></span> Total</span>
+        <tr class="corsair-temp-ax"><td><span class="w26">Temp1 / Temp2</span>
+            <span class="w26"><span class="corsair-temp1"></span> / <span class="corsair-temp2"></span> °C</span>
+            <span class="w26">Fan: <span class="corsair-fan_display"></span></span>
             </td></tr>
         <tr class="corsair-efficiency-ax"><td><span class="w26">Efficiency / Supply</span>
-            <span class="w26"><span class="corsair-efficiency"></span>% (<span class="corsair-input_power"></span>W)</span>
-            <span class="w26"><span class="corsair-input_voltage"></span>V</span>
+            <span class="w26"><span class="corsair-efficiency"></span>%</span>
+            <span class="w26"><span class="corsair-input_voltage"></span>V (<span class="corsair-input_power"></span>W)</span>
             </td></tr>
 </tbody>
 EOT;
@@ -99,7 +98,14 @@ const corsairpsu_status = () => {
         if (data) {
          $.each(data, function (key, data) {
              $(".corsair-" + key).html(data);
-         })
+         });
+         
+         // Display fan with percentage and consistent formatting
+         if (data['fan_rpm'] == 0) {
+             $(".corsair-fan_display").html("0% (Passive)");
+         } else {
+             $(".corsair-fan_display").html(data['fan_percentage'] + "% (" + data['fan_rpm'] + " RPM)");
+         }
         }
     });
 };
