@@ -18,6 +18,7 @@ Power Supply Type:
 : <select id="TYPE" name="TYPE" size="1">
   <?=mk_option($corsairpsu_type, "corsairmi", "RMi/HXi");?>
   <?=mk_option($corsairpsu_type, "cpsumoncli", "AXi");?>
+  <?=mk_option($corsairpsu_type, "ax1600i", "AX1600i");?>
   </select>
 
 Serial Device (Only needed for AXi PSU's):
