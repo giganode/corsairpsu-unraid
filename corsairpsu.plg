@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "corsairpsu">
 <!ENTITY author    "giganode">
-<!ENTITY version   "2025.11.15">
+<!ENTITY version   "2025.11.23">
 <!ENTITY launch    "Settings/CorsairPSUSettings">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/giganode/&name;-unraid/master">
 <!ENTITY pluginURL "&gitURL;/&name;.plg">
@@ -11,11 +11,15 @@
 <!ENTITY plgNAME   "&name;-&version;-x86_64">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 <!ENTITY packages  "/boot/config/plugins/&name;/pkg">
-<!ENTITY md5       "b4082df7731a830fd911df66957d9a48">
+<!ENTITY md5       "d65b56a21cdad9d491c8e795392acc53">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="icon-ups" launch="&launch;" pluginURL="&pluginURL;" min="6.11.5">
  
  <CHANGES>
+##2025.11.23
+
+    - Added possibility to choose AX1600i via Plugin Settings Page.
+
 ##2025.11.15
 
     - Added support for AX1600i. Necessary changes added. Thanks a lot to Bngoold.
@@ -24,27 +28,27 @@
 
     - Added support for new revision HX1500i.
 
- ##2025.01.05
+##2025.01.05
 
     - Added support for new revision HX1200i (with USB-C).
 
- ##2025.01.05
+##2025.01.05
 
     - Added support for HX1200i (with USB-C).
 
- ##2023.11.13
+##2023.11.13
 
     - Added support for HX1500i.
   
- ##2023.08.06
+##2023.08.06
 
     - Fixed cpsumoncli, because it was not executable.
 
- ##2023.06.15
+##2023.06.15
   
     - Added support for new HX1000i PSU with USB-C.
   
- ##2023.03.26e
+##2023.03.26e
     
     - Repo forked from CyanLabs/corsairpsu-unraid. 
       Made the necessary changes for UnRAID v.6.12.0-beta7 while maintaining backwards compatibility.
